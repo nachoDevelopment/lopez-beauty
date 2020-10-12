@@ -5,6 +5,10 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Gatsby Starter Tailwind`,
+    description: `Gatsby starter styled with Tailwind`,
+  },
   /* Your site config here */
   plugins: [
     {
