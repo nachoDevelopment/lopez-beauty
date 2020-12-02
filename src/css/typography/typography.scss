@@ -1,0 +1,21 @@
+html {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+main {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.text-1 {
+  color: #fff;
+  @apply text-3xl md:text-4xl; 
+}
+
+.text-2 {
+  @apply text-xl md:text-2xl;
+}
+
+.text-p {
+  @apply text-sm md:text-base font-light tracking-widest;
+}

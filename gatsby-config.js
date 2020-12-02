@@ -6,8 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
+    title: `Lopez Beauty`,
+    description: `Michelle Lopez, Makeup Artist`,
   },
   /* Your site config here */
   plugins: [
@@ -19,5 +19,16 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.API_URL || "http://143.110.163.87",
+        contentTypes: [''],
+        singleTypes: [`home`],
+        queryLimit: 1000,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
   ],
 }

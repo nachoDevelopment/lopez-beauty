@@ -6,5 +6,10 @@
 // Custom Styles
 @import './components/layout.scss';
 @import "./components/navbar.scss";
+@import "./components/banner.scss";
+@import "./components/button.scss";
+
+@import "./typography/typography.scss";
+
 //hamburger menu
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
