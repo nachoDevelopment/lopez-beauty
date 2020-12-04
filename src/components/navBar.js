@@ -14,8 +14,8 @@ function Navbar() {
   }
 
   return (
-    <header className="w-full bg-primary-base">
-      <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8 overflow-auto md:h-20">
+    <header className="w-full bg-primary-base sticky top-0 z-10">
+      <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8 overflow-auto md:h-20 sticky">
         <Link to="/" className="md:hidden">
           <img src={'./lopez-beauty-logo.png'} className="h-14" />
         </Link>
