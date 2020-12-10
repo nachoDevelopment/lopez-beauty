@@ -1,5 +1,12 @@
 .button-1 {
-  @apply bg-primary-base hover:bg-primary-light pt-4 pb-3 px-6 text-base uppercase transition duration-500 ease-in-out;
+  @apply bg-primary-base hover:bg-primary-light pt-4 pb-3 px-6 text-base uppercase transition duration-500 ease-in-out font-light;
   letter-spacing: 0.13em;
   vertical-align: sub;
+}
+
+.button-2 {
+  @apply  hover:bg-primary-base pt-4 pb-3 px-6 text-base uppercase transition duration-500 ease-in-out font-light;
+  letter-spacing: 0.13em;
+  vertical-align: sub;
+  border: 0.5px solid #1D1D1D
 }

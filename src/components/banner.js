@@ -12,9 +12,9 @@ function Banner({ image, bannerText, buttonText, url }) {
       >
         <div className="flex flex-col align-middle justify-center text-center bg-black bg-opacity-25 h-full w-full">
           <h1 className="uppercase text-1 mb-9 mx-7">{bannerText}</h1>
-          <buttonText >
+          <button >
             <Link className="button-1" to={url}>{buttonText}</Link>
-          </buttonText>
+          </button>
         </div>
 
       </BackgroundImage>
