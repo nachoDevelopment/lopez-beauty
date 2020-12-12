@@ -23,6 +23,7 @@ export default function Home() {
 
   return (
     <Layout>
+
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}
@@ -30,29 +31,13 @@ export default function Home() {
         image={image}
       />
 
-      <IntroText 
-        introHeading={introContent.heading}
-        introText={introContent.text}
-        key={introContent.id}
-      />
-
-      <ServiceCards 
-        servicesContent={servicesContent}
-      />
-
-      <Accordian 
-        accordianContent={accordianContent}
-      />
-
-      <Cta />
-
     </Layout>
   )
 }
 
 const query = graphql`
   query {
-    strapiHome {
+    strapiServices{
       banner {
         bannerText
         buttonText
@@ -64,34 +49,6 @@ const query = graphql`
             }
           }
         }
-      },
-      intro {
-        intro_content {
-          heading
-          text
-          id
-        }
-      },
-      services {
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        services_content {
-          heading
-          button_text
-          button_url
-          text
-          id
-        }
-      },
-      accordian {
-        Answer
-        Question
-        id
       }
     }
   }

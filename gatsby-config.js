@@ -24,7 +24,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "http://143.110.163.87",
         contentTypes: [''],
-        singleTypes: [`home`],
+        singleTypes: [`home`, 'services'],
         queryLimit: 1000,
       },
     },
