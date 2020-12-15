@@ -3,23 +3,22 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from '../components/layout'
 import Banner from '../components/banner'
 import IntroText from "../components/introText"
-import ServiceCards from '../components/servicesCards'
-import Accordian from '../components/accordian'
+import ServicePricelist from "../components/servicePricelist"
 import Cta from '../components/cta'
 
 export default function Home() {
   
   const data = useStaticQuery(query);
 
-  const bannerContent = data.strapiHome.banner;
-  const introContent = data.strapiHome.intro.intro_content
-  const servicesContent = data.strapiHome.services
-  const accordianContent = data.strapiHome.accordian
+  const bannerContent = data.strapiServices.banner;
+  const introContent = data.strapiServices.service_intro.intro_content
+  const servicePricelistContent = data.strapiServices.service_pricelist
+  console.log(servicePricelistContent)
 
   const bannerText = bannerContent.bannerText;
   const bannerButtonText = bannerContent.buttonText;
   const bannerButtonURL = bannerContent.buttonURL;
-  const image = bannerContent.image.childImageSharp.fluid;
+  const image = bannerContent.banner_image.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -30,24 +29,60 @@ export default function Home() {
         url={bannerButtonURL}
         image={image}
       />
+      <IntroText 
+        introHeading={introContent.heading}
+        introText={introContent.text}
+        key={introContent.id}
+      />
+      
+      <ServicePricelist 
+        pricelistContent={servicePricelistContent}
+      />
+
+      <Cta />
 
     </Layout>
   )
 }
 
 const query = graphql`
+
   query {
     strapiServices{
       banner {
         bannerText
         buttonText
         buttonURL
-        image {
+        banner_image {
           childImageSharp {
             fluid(maxWidth: 1800) {
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      },
+      service_intro {
+        intro_content {
+          heading
+          text
+          id
+        }
+      },
+      service_pricelist {
+        card_side
+        button_text
+        button_url
+        title
+        pricelist_background {
+          childImageSharp {
+            fluid(maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+        }
+      },
+      service_pricing {
+        service_description
+        service_price
         }
       }
     }

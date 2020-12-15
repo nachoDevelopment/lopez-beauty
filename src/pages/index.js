@@ -6,6 +6,7 @@ import IntroText from "../components/introText"
 import ServiceCards from '../components/servicesCards'
 import Accordian from '../components/accordian'
 import Cta from '../components/cta'
+import Testimonials from "../components/testimonials"
 
 export default function Home() {
   
@@ -15,11 +16,12 @@ export default function Home() {
   const introContent = data.strapiHome.intro.intro_content
   const servicesContent = data.strapiHome.services
   const accordianContent = data.strapiHome.accordian
+  const testimonialsBackground = data.strapiHome.home_testimonials.home_testimonials_background.childImageSharp.fluid
 
   const bannerText = bannerContent.bannerText;
   const bannerButtonText = bannerContent.buttonText;
   const bannerButtonURL = bannerContent.buttonURL;
-  const image = bannerContent.image.childImageSharp.fluid;
+  const image = bannerContent.banner_image.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -44,6 +46,10 @@ export default function Home() {
         accordianContent={accordianContent}
       />
 
+      <Testimonials 
+        image={testimonialsBackground}
+      />
+
       <Cta />
 
     </Layout>
@@ -57,7 +63,7 @@ const query = graphql`
         bannerText
         buttonText
         buttonURL
-        image {
+        banner_image {
           childImageSharp {
             fluid(maxWidth: 1800) {
               ...GatsbyImageSharpFluid
@@ -73,7 +79,7 @@ const query = graphql`
         }
       },
       services {
-        image {
+        services_background_image {
           childImageSharp {
             fluid(maxWidth: 1800) {
               ...GatsbyImageSharpFluid
@@ -92,7 +98,16 @@ const query = graphql`
         Answer
         Question
         id
-      }
+      },
+      home_testimonials {
+        home_testimonials_background {
+          childImageSharp {
+            fluid (maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      } 
     }
   }
 `
