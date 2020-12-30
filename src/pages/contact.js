@@ -2,54 +2,60 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from '../components/layout'
 import Banner from '../components/banner'
-import IntroText from "../components/introText"
-import ServiceCards from '../components/servicesCards'
-import Accordian from '../components/accordian'
-import Cta from '../components/cta'
+import Instagram from "../components/instagram"
 
-// export default function Home() {
+export default function About() {
   
-//   const data = useStaticQuery(query);
+  const data = useStaticQuery(query);
 
-//   const bannerContent = data.strapiHome.banner;
-//   const introContent = data.strapiHome.intro.intro_content
-//   const servicesContent = data.strapiHome.services
-//   const accordianContent = data.strapiHome.accordian
+  const bannerContent = data.strapiAbout.about_banner;
+  const introContent = data.strapiAbout.about_intro
 
-//   const bannerText = bannerContent.bannerText;
-//   const bannerButtonText = bannerContent.buttonText;
-//   const bannerButtonURL = bannerContent.buttonURL;
-//   const image = bannerContent.image.childImageSharp.fluid;
+  const bannerText = bannerContent.bannerText;
+  const bannerButtonText = bannerContent.buttonText;
+  const bannerButtonURL = bannerContent.buttonURL;
+  const image = bannerContent.banner_image.childImageSharp.fluid;
 
-//   return (
-//     <Layout>
+  return (
+    <Layout>
 
-//     </Layout>
-//   )
-// }
+      <Banner
+        bannerText={bannerText}
+        buttonText={bannerButtonText}
+        url={bannerButtonURL}
+        image={image}
+      /> 
 
-// const query = graphql`
-//   query {
-//     strapiHome {
-//       banner {
-//         bannerText
-//         buttonText
-//         buttonURL
-//         image {
-//           childImageSharp {
-//             fluid(maxWidth: 1800) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       },
-//       intro {
-//         intro_content {
-//           heading
-//           text
-//           id
-//         }
-//       },
-//     }
-//   }
-// `
+      <Instagram />
+
+    </Layout>
+  )
+}
+
+const query = graphql`
+  query {
+    strapiAbout {
+      about_banner {
+        bannerText
+        buttonText
+        buttonURL
+        banner_image {
+          childImageSharp {
+            fluid(maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      },
+      testimonials {
+        home_testimonials_background {
+          childImageSharp {
+            fluid (maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -1,11 +1,9 @@
-import React, {useState, setState} from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 
 import BackgroundImage from 'gatsby-background-image'
 
 function ServicesCards({servicesContent}) {
-
-  let [cardPosition, setCardPosition] = useState('right');
 
   return ( 
     <div className="">

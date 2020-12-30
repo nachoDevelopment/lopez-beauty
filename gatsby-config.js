@@ -24,11 +24,17 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "http://143.110.163.87",
         contentTypes: [''],
-        singleTypes: [`home`, 'services'],
+        singleTypes: [`home`, 'services', 'about'],
         queryLimit: 1000,
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: "IGQVJVVVdlb3M1MG5qNlh0dG5jSS1zeUtDUHh6ZA2t4X3d1Y08wR2lBV0ZANeEdmS003SUVNXzFYamZAfNm15VXNrWmVBek1rdW1NRlVVRUVzZAjY1dW5FVXljdXVzOHZA6SGpDMkhzQnZAMOTdGQ05Bc3hhNAZDZD",
+      }
+    },
   ],
 }
