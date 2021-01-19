@@ -7,6 +7,7 @@ import ServiceCards from '../components/servicesCards'
 import Accordian from '../components/accordian'
 import Cta from '../components/cta'
 import Testimonials from "../components/testimonials"
+import SEO from "../components/SEO"
 
 export default function Home() {
   
@@ -17,6 +18,8 @@ export default function Home() {
   const servicesContent = data.strapiHome.services
   const accordianContent = data.strapiHome.accordian
   const testimonialsBackground = data.strapiHome.home_testimonials.home_testimonials_background.childImageSharp.fluid
+  const pageSeo = data.strapiHome.seo 
+  const {pageTitle, pageDescription} = pageSeo
 
   const bannerText = bannerContent.bannerText;
   const bannerButtonText = bannerContent.buttonText;
@@ -25,6 +28,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO title={pageTitle} description={pageDescription}/>
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}
@@ -107,6 +111,10 @@ const query = graphql`
             }
           }
         }
+      },
+      seo {
+        pageTitle:title
+        pageDescription:description
       } 
     }
   }

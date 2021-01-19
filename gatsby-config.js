@@ -7,7 +7,8 @@
 module.exports = {
   siteMetadata: {
     title: `Lopez Beauty`,
-    description: `Michelle Lopez, Makeup Artist`,
+    description: `Makeup artist based in Exeter, Devon. Bobbi Brown & Charlotte Tillbury trained and Over 9 years experience specialising in wedding makeup, and party makeup.`,
+    siteUrl: 'https://lopezbeauty.com',
   },
   /* Your site config here */
   plugins: [
@@ -24,12 +25,22 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "http://143.110.163.87",
         contentTypes: [''],
-        singleTypes: [`home`, 'services', 'about'],
+        singleTypes: ['home', 'services', 'about', 'contact', 'global', 'makeup-services'],
         queryLimit: 1000,
       },
     },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.example.com',
+        sitemap: 'https://www.example.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-instagram-all`,
       options: {

@@ -1,0 +1,15 @@
+.form-input {
+  border-bottom: 1px solid black;
+  background: transparent;
+  width: 60%;
+  @apply font-light;
+}
+
+.form-input::placeholder {
+  color: black;
+  @apply font-extralight;
+}
+
+.form-label {
+  @apply w-full flex flex-row justify-between my-6 uppercase font-light;;
+}

@@ -12,7 +12,7 @@ function Footer() {
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
             key='services'
             to='/services' >
-            Serives
+            Services
           </Link>
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
@@ -34,9 +34,11 @@ function Footer() {
           </Link>
         </div>
         <Link to="/" className="w-max mx-auto">
-          <img src={'./lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"/>
+          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"/>
         </Link>
-        <Link to="https://www.instagram.com/makeupby_michellelopez/?hl=en" className="w-min mx-auto mb-4"><InstagramIcon className="mx-auto font-light"/></Link>
+        <a href="https://www.instagram.com/makeupby_michellelopez/?hl=en" className="w-min mx-auto mb-4">
+          <InstagramIcon className="mx-auto font-light"/>
+        </a>
         <p className="text-sm">©2020 Lopez Beauty</p>
         <p className="text-center text-sm">
           Designed & Built By{` `}

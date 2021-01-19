@@ -8,14 +8,12 @@ function Instagram() {
   const data = useStaticQuery(query)
   const instaImages = data.allInstagramContent.edges
 
-  console.log(instaImages)
-
   return (
     <div className="my-6 md:w-11/12 mx-auto flex flex-col">
       <h2 className="text-center uppercase py-6">Instagram</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-        {instaImages.slice(0,4).map(image => (
-          <Img fluid={image.node.localImage.childImageSharp.fluid}/>
+        {instaImages.slice(0,4).map((image, index) => (
+          <Img fluid={image.node.localImage.childImageSharp.fluid} key={index}/>
         ))}
       </div>
       <button className="button-2 mx-auto mt-10 mb-6">

@@ -5,6 +5,7 @@ import Banner from '../components/banner'
 import IntroText from "../components/introText"
 import ServicePricelist from "../components/servicePricelist"
 import Cta from '../components/cta'
+import SEO from "../components/SEO"
 
 export default function Home() {
   
@@ -13,7 +14,8 @@ export default function Home() {
   const bannerContent = data.strapiServices.banner;
   const introContent = data.strapiServices.service_intro.intro_content
   const servicePricelistContent = data.strapiServices.service_pricelist
-  console.log(servicePricelistContent)
+  const seo = data.strapiServices.seo
+  const {siteTitle, siteDescription} = seo
 
   const bannerText = bannerContent.bannerText;
   const bannerButtonText = bannerContent.buttonText;
@@ -22,6 +24,8 @@ export default function Home() {
 
   return (
     <Layout>
+
+      <SEO title={siteTitle} description={siteDescription}/>
 
       <Banner
         bannerText={bannerText}
@@ -69,6 +73,7 @@ const query = graphql`
         }
       },
       service_pricelist {
+        id
         card_side
         button_text
         button_url
@@ -83,7 +88,12 @@ const query = graphql`
       service_pricing {
         service_description
         service_price
+        id
         }
+      },
+      seo {
+        siteTitle:title
+        siteDescription:description
       }
     }
   }
