@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 module.exports = {
   siteMetadata: {
     title: `Lopez Beauty`,
@@ -17,15 +21,16 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("tailwindcss"),
+          require("./tailwind.config.js"),
         ],
       },
     },
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://143.110.163.87",
-        contentTypes: [''],
-        singleTypes: ['home', 'services', 'about', 'contact', 'global', 'makeup-services'],
+        apiURL: "http://143.110.163.87",
+        contentTypes: ['makeup-services'],
+        singleTypes: ['home', 'services', 'about', 'contact', 'global'],
         queryLimit: 1000,
       },
     },
@@ -33,8 +38,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://www.example.com',
-        sitemap: 'https://www.example.com/sitemap.xml',
+        host: 'https://lopezbeauty.com',
+        sitemap: 'https://lopezbeauty.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -44,8 +49,15 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
-        access_token: "IGQVJVVVdlb3M1MG5qNlh0dG5jSS1zeUtDUHh6ZA2t4X3d1Y08wR2lBV0ZANeEdmS003SUVNXzFYamZAfNm15VXNrWmVBek1rdW1NRlVVRUVzZAjY1dW5FVXljdXVzOHZA6SGpDMkhzQnZAMOTdGQ05Bc3hhNAZDZD",
+        access_token: process.env.INSTAGRAM_TOKEN,
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: process.env.GA_TRACKING_ID,
+      },
     },
   ],
 }
