@@ -17,20 +17,28 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        postCssPlugins: [
-          require("tailwindcss"),
-        ],
-      },
-    },
-    {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "http://143.110.163.87",
         contentTypes: ['makeup-services'],
         singleTypes: ['home', 'services', 'about', 'contact', 'global'],
         queryLimit: 1000,
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_TOKEN,
+      }
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+        ],
       },
     },
     `gatsby-plugin-sitemap`,
@@ -42,15 +50,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: process.env.INSTAGRAM_TOKEN,
-      }
-    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

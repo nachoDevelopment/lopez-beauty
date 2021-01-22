@@ -3,13 +3,13 @@ import { Link } from 'gatsby'
 
 import BackgroundImage from 'gatsby-background-image'
 
-function ServicesCards({servicesContent}) {
+function ServicesCards({servicesContent, image}) {
 
   return ( 
     <div className="">
       <BackgroundImage
         className="bg-center bg-cover bg-no-repeat bg-fixed pb-9 pt-6 px-6"
-        fluid={servicesContent.services_background_image.childImageSharp.fluid}
+        fluid={image}
       >
         <h2 className="text-2 my-6 mx-auto text-center uppercase">Services</h2>
         <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-screen-xl mx-auto text-center">

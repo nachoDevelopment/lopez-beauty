@@ -16,8 +16,9 @@ export default function Home() {
   const bannerContent = data.strapiHome.banner;
   const introContent = data.strapiHome.intro.intro_content
   const servicesContent = data.strapiHome.services
+  const servicesBackground = data.strapiHome.services_background_image.childImageSharp.fluid
   const accordianContent = data.strapiHome.accordian
-  const testimonialsBackground = data.strapiHome.home_testimonials.home_testimonials_background.childImageSharp.fluid
+  const testimonialsBackground = data.strapiHome.testimonials_background_image.childImageSharp.fluid
   const pageSeo = data.strapiHome.seo 
   const {pageTitle, pageDescription} = pageSeo
 
@@ -44,6 +45,7 @@ export default function Home() {
 
       <ServiceCards 
         servicesContent={servicesContent}
+        image={servicesBackground}
       />
 
       <Accordian 
@@ -83,13 +85,6 @@ const query = graphql`
         }
       },
       services {
-        services_background_image {
-          childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         services_content {
           heading
           button_text
@@ -103,19 +98,24 @@ const query = graphql`
         Question
         id
       },
-      home_testimonials {
-        home_testimonials_background {
-          childImageSharp {
-            fluid (maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      },
       seo {
         pageTitle:title
         pageDescription:description
-      } 
+      },
+      services_background_image {
+        childImageSharp {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      testimonials_background_image {
+        childImageSharp {
+          fluid (maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `

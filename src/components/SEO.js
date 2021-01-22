@@ -7,7 +7,6 @@ const SEO = ({title, description}) => {
   const { site } = useStaticQuery(query)
   const {
     siteDesc,
-    siteUrl,
     siteTitle
   } = site.siteMetadata
 
