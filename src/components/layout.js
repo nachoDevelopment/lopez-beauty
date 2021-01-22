@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './navbar'
+import Navbar from './navBar'
 import Footer from './footer'
 import "../css/index.scss"
 
