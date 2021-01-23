@@ -17,7 +17,7 @@ function Navbar() {
     <header className="w-full bg-primary-base sticky top-0 z-10">
       <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8 overflow-auto md:h-20 sticky">
         <Link to="/" className="md:hidden">
-          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"/>
+          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo" width="280" height="56"/>
         </Link>
         <button className={`hamburger hamburger--squeeze text-white border md:hidden ${menuActive ? "is-active" : ""}`} type="button"
           aria-label="Menu" aria-controls="navigation"
