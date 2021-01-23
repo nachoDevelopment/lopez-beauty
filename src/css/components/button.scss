@@ -19,3 +19,7 @@
   vertical-align: sub;
   border: 0.5px solid #fff;
 }
+
+button:focus {
+  outline: none;
+}

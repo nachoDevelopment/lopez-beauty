@@ -17,9 +17,7 @@ function Bio({image, heading, body, buttonText, buttonURL}) {
           <div >
             <ReactMarkdown className="text-center grid md:grid-cols-2 gap-8">{body}</ReactMarkdown>
           </div>
-          <button className="button-2 mx-auto mt-6">
-              <Link to={buttonURL}>{buttonText}</Link>
-          </button>
+              <Link to={buttonURL} className="button-2 mx-auto mt-6">{buttonText}</Link>
         </div>
       </BackgroundImage>
     </div>

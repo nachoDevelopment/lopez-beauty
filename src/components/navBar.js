@@ -30,7 +30,7 @@ function Navbar() {
           </span>
         </button>
 
-        <nav
+        <nav id="navigation"
           className={` ${isExpanded ? `mobile-nav-closed` : `mobile-nav-open`
             } md:flex md:items-center w-full md:justify-between text-center md:text-left`}>
 
@@ -47,7 +47,7 @@ function Navbar() {
             Services
           </Link>
           <Link to="/" className="hidden md:block">
-            <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"/>
+            <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo" width="280" height="56"/>
           </Link>
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"

@@ -34,12 +34,12 @@ function Footer() {
           </Link>
         </div>
         <Link to="/" className="w-max mx-auto">
-          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"/>
+          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"  width="280" height="56"/>
         </Link>
-        <a href="https://www.instagram.com/makeupby_michellelopez/?hl=en" className="w-min mx-auto mb-4">
-          <InstagramIcon className="mx-auto font-light"/>
+        <a href="https://www.instagram.com/makeupby_michellelopez/?hl=en" className="w-min mx-auto mb-4 p-3">
+          <InstagramIcon className="mx-auto font-light" alt="instagram logo"/>
         </a>
-        <p className="text-sm">©2020 Lopez Beauty</p>
+        <p className="text-sm">©{new Date().getFullYear()} Lopez Beauty</p>
         <p className="text-center text-sm">
           Designed & Built By{` `}
           <a
