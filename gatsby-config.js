@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://143.110.163.87",
+        apiURL: process.env.API_URL,
         contentTypes: ['makeup-services'],
         singleTypes: ['home', 'services', 'about', 'contact', 'global'],
         queryLimit: 1000,
