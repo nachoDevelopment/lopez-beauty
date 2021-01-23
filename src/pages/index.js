@@ -71,8 +71,8 @@ const query = graphql`
         buttonURL
         banner_image {
           childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -104,15 +104,15 @@ const query = graphql`
       },
       services_background_image {
         childImageSharp {
-          fluid(maxWidth: 1800) {
-            ...GatsbyImageSharpFluid
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       },
       testimonials_background_image {
         childImageSharp {
-          fluid (maxWidth: 1800) {
-            ...GatsbyImageSharpFluid
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

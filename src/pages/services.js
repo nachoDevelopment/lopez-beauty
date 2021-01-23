@@ -59,8 +59,8 @@ const query = graphql`
         buttonURL
         banner_image {
           childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
