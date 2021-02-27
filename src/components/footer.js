@@ -32,6 +32,12 @@ function Footer() {
             to='/contact' >
             Contact
           </Link>
+          <Link
+            className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
+            key='terms'
+            to='/terms-and-conditions' >
+            Terms & Conditions
+          </Link>
         </div>
         <Link to="/" className="w-max mx-auto">
           <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo"  width="280" height="56"/>
