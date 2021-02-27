@@ -1,8 +1,8 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react"
+import { graphql } from "gatsby"
 
-import Layout from '../components/layout'
-import Banner from '../components/banner'
+import Layout from "../components/layout"
+import Banner from "../components/banner"
 import IntroText from "../components/introText"
 import ServiceCosts from "../components/serviceCosts"
 import BookingProcess from "../components/bookingProcess"
@@ -18,8 +18,8 @@ export const query = graphql`
         bannerText
         banner_image {
           childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -38,8 +38,8 @@ export const query = graphql`
         button_url
         background_image {
           childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -52,22 +52,20 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const Service = ({ data }) => {
+  const bannerContent = data.service.service_banner
+  const introContent = data.service.service_intro.intro_content
+  const serviceCostsContent = data.service.service_costs
 
-  const bannerContent = data.service.service_banner;
-  const introContent = data.service.service_intro.intro_content;
-  const serviceCostsContent = data.service.service_costs;
-
-  const bannerText = bannerContent.bannerText;
-  const bannerButtonText = bannerContent.buttonText;
-  const bannerButtonURL = bannerContent.buttonURL;
-  const image = bannerContent.banner_image.childImageSharp.fluid;
+  const bannerText = bannerContent.bannerText
+  const bannerButtonText = bannerContent.buttonText
+  const bannerButtonURL = bannerContent.buttonURL
+  const image = bannerContent.banner_image.childImageSharp.fluid
 
   return (
     <Layout>
-
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}
@@ -81,16 +79,13 @@ const Service = ({ data }) => {
         key={introContent.id}
       />
 
-      <ServiceCosts 
-        content={serviceCostsContent}
-      />
+      <ServiceCosts content={serviceCostsContent} />
 
       <BookingProcess />
 
       <CTA />
-
     </Layout>
-  );
-};
+  )
+}
 
-export default Service;
+export default Service
