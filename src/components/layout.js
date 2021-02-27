@@ -14,13 +14,13 @@ export default function Layout({ children }) {
         location="bottom"
         buttonText="Accept"
         cookieName="Google Analytics"
-        style={{ background: "#e5e7eb" }}
+        style={{ background: "#222222" }}
         buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
         expires={150}
       >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>
-          By using this website you are accepting the use of cookies
+        <span style={{ fontSize: "12px" }}>
+          This website uses cookies to enhance the user experience. By using
+          this website you are accepting the use of cookies
         </span>
       </CookieConsent>
     </div>
