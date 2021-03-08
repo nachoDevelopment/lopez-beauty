@@ -15,9 +15,9 @@ function ServiceCosts({ content }) {
           <h2 className="text-2 my-6 mx-auto text-center uppercase">
             {content.title}
           </h2>
-          <div className="mx-auto grid gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6">
+          <div className="mx-auto flex flex-wrap justify-center">
             {content.service_pricing_content.map(x => (
-              <div className="flex flex-col" key={x.id}>
+              <div className="flex flex-col w-64 mx-5 my-6" key={x.id}>
                 <p className="uppercase text-center font-medium">{x.heading}</p>
                 <div className="flex flex-col justify-between">
                   <hr className="mx-auto border-black w-2/3 my-4" />
@@ -29,9 +29,12 @@ function ServiceCosts({ content }) {
               </div>
             ))}
           </div>
-          <button className="button-2 mx-auto mt-6">
-            <Link to={content.button_url}>{content.button_text}</Link>
-          </button>
+
+          <Link to={content.button_url} className="mx-auto">
+            <button className="button-2 mx-auto mt-6">
+              {content.button_text}{" "}
+            </button>
+          </Link>
         </div>
       </BackgroundImage>
     </div>
