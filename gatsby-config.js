@@ -5,14 +5,14 @@
  */
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
   siteMetadata: {
     title: `Lopez Beauty`,
     description: `Makeup artist based in Exeter, Devon. Bobbi Brown & Charlotte Tillbury trained and Over 9 years experience specialising in wedding makeup, and party makeup.`,
-    siteUrl: 'https://lopezbeauty.com',
+    siteUrl: "https://lopezbeauty.com",
   },
   /* Your site config here */
   plugins: [
@@ -20,8 +20,8 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL,
-        contentTypes: ['makeup-services'],
-        singleTypes: ['home', 'services', 'about', 'contact', 'global'],
+        contentTypes: ["makeup-services"],
+        singleTypes: ["home", "services", "about", "contact", "global"],
         queryLimit: 1000,
       },
     },
@@ -29,26 +29,25 @@ module.exports = {
       resolve: `gatsby-source-instagram-all`,
       options: {
         access_token: process.env.INSTAGRAM_TOKEN,
-      }
+      },
     },
+    `gatsby-plugin-gatsby-cloud`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        postCssPlugins: [
-          require("tailwindcss"),
-        ],
+        postCssPlugins: [require("tailwindcss")],
       },
     },
     `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://lopezbeauty.com',
-        sitemap: 'https://lopezbeauty.com/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        host: "https://lopezbeauty.com",
+        sitemap: "https://lopezbeauty.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
