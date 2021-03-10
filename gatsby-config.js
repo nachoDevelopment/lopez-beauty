@@ -55,6 +55,7 @@ module.exports = {
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: process.env.GA_TRACKING_ID,
+        cookieExpires: 9999,
       },
     },
     {

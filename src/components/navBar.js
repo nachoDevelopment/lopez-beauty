@@ -1,64 +1,88 @@
-import { Link } from "gatsby";
-import React, { useState } from "react";
+import { Link } from "gatsby"
+import React, { useState } from "react"
 
 function Navbar() {
-  const [isExpanded, toggleExpansion] = useState(false);
-  const [menuActive, setMenuState] = useState(false);
+  const [isExpanded, toggleExpansion] = useState(false)
+  const [menuActive, setMenuState] = useState(false)
 
   function expand() {
-    toggleExpansion(!isExpanded);
+    toggleExpansion(!isExpanded)
   }
 
   function isActive() {
-    setMenuState(!menuActive);
+    setMenuState(!menuActive)
   }
 
   return (
     <header className="w-full bg-primary-base sticky top-0 z-10">
       <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8 overflow-auto md:h-20 sticky">
         <Link to="/" className="md:hidden">
-          <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo" width="280" height="56"/>
+          <img
+            src={"/lopez-beauty-logo.png"}
+            className="h-auto"
+            alt="makeup by michelle lopez logo"
+            width="240"
+            height="56"
+          />
         </Link>
-        <button className={`hamburger hamburger--squeeze text-white border md:hidden ${menuActive ? "is-active" : ""}`} type="button"
-          aria-label="Menu" aria-controls="navigation"
+        <button
+          className={`hamburger hamburger--squeeze text-white border md:hidden ${
+            menuActive ? "is-active" : ""
+          }`}
+          type="button"
+          aria-label="Menu"
+          aria-controls="navigation"
           onClick={() => {
             expand()
             isActive()
-          }}>
+          }}
+        >
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
         </button>
 
-        <nav id="navigation"
-          className={` ${isExpanded ? `mobile-nav-closed` : `mobile-nav-open`
-            } md:flex md:items-center w-full md:justify-between text-center md:text-left`}>
-
+        <nav
+          id="navigation"
+          className={` ${
+            isExpanded ? `mobile-nav-closed` : `mobile-nav-open`
+          } md:flex md:items-center w-full md:justify-between text-center md:text-left`}
+        >
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
-            key='home'
-            to='/' >
+            key="home"
+            to="/"
+          >
             Home
           </Link>
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
-            key='services'
-            to='/services' >
+            key="services"
+            to="/services"
+          >
             Services
           </Link>
           <Link to="/" className="hidden md:block">
-            <img src={'/lopez-beauty-logo.png'} className="h-14" alt="makeup by michelle lopez logo" width="280" height="56"/>
+            <img
+              src={"/lopez-beauty-logo.png"}
+              className="h-14"
+              alt="makeup by michelle lopez logo"
+              width="280"
+              height="56"
+            />
           </Link>
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
-            key='about'
-            to='/about' >
+            key="about"
+            to="/about"
+          >
             About
           </Link>
           <Link
             className="font-light block mt-4 text-gray-900 no-underline md:inline-block md:mt-0 md:ml-6 uppercase"
-            key='constact'
-            to='/contact' >
+            key="constact"
+            to="/contact"
+          >
             Contact
           </Link>
         </nav>

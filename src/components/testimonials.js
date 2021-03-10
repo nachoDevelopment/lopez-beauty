@@ -74,7 +74,7 @@ function Testimonials({ image }) {
           </Slider>
           <div className="flex justify-center mt-7">
             <a
-              className="button-2 mb-6"
+              className="button-2 mb-6 text-center"
               target="blank"
               href="https://www.google.com/maps/place/Makeup+By+Michelle+Lopez/@50.9671357,-6.1948591,7z/data=!3m1!4b1!4m5!3m4!1s0x0:0xf020265d8642b992!8m2!3d50.988608!4d-3.952334"
             >
