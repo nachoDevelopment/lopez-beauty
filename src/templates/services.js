@@ -7,11 +7,16 @@ import IntroText from "../components/introText"
 import ServiceCosts from "../components/serviceCosts"
 import BookingProcess from "../components/bookingProcess"
 import CTA from "../components/cta"
+import SEO from "../components/SEO"
 
 export const query = graphql`
   query Service($name: String!) {
     service: strapiMakeupServices(name: { eq: $name }) {
       name
+      seo {
+        pageTitle: title
+        pageDescription: description
+      }
       service_banner {
         buttonText
         buttonURL
@@ -63,9 +68,12 @@ const Service = ({ data }) => {
   const bannerButtonText = bannerContent.buttonText
   const bannerButtonURL = bannerContent.buttonURL
   const image = bannerContent.banner_image.childImageSharp.fluid
+  const pageSeo = data.service.seo
+  const { pageTitle, pageDescription } = pageSeo
 
   return (
     <Layout>
+      <SEO title={pageTitle} description={pageDescription} />
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}

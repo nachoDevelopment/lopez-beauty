@@ -1,10 +1,15 @@
 import React from "react"
 
 import Layout from "../components/layout"
+import SEO from "../components/SEO"
 
 export default function Terms() {
   return (
     <Layout>
+      <SEO
+        title="Terms & Conditions"
+        description="View my terms and conditions for booking you wedding or special event makeup"
+      />
       <h1 className="text-black text-center my-8 uppercase">
         Terms & Conditions
       </h1>
