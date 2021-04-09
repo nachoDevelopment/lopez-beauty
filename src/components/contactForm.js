@@ -72,6 +72,10 @@ export default function ContactForm() {
             Message
             <textarea type="text-area" name="message" className="form-input" />
           </label>
+          <div
+            class="g-recaptcha"
+            data-sitekey="6LccgKIaAAAAACXFk1LZTf4h3xEZYR5hjnoRFh33"
+          ></div>
           <button type="submit" className="button-2 mx-auto my-6">
             Send
           </button>
