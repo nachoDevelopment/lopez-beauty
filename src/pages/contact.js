@@ -23,11 +23,6 @@ export default function About() {
   return (
     <Layout>
       <SEO title={pageTitle} description={pageDescription} />
-      <script
-        src="https://www.google.com/recaptcha/api.js"
-        async
-        defer
-      ></script>
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}
