@@ -9,7 +9,11 @@ const SEO = ({ title, description }) => {
   return (
     <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>
       <meta name="description" content={description || siteDesc} />
-      <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script
+        src="https://www.google.com/recaptcha/api.js"
+        async
+        defer
+      ></script>
     </Helmet>
   )
 }
