@@ -21,7 +21,14 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         contentTypes: ["makeup-services"],
-        singleTypes: ["home", "services", "about", "contact", "global"],
+        singleTypes: [
+          "home",
+          "services",
+          "suppliers",
+          "about",
+          "contact",
+          "global",
+        ],
         queryLimit: 1000,
       },
     },

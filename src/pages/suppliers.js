@@ -1,20 +1,21 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/layout"
+import SEO from "../components/SEO"
+import Cta from "../components/cta"
 import Banner from "../components/banner"
 import IntroText from "../components/introText"
-import ServicePricelist from "../components/servicePricelist"
-import Cta from "../components/cta"
-import SEO from "../components/SEO"
+import Suppliers from "../components/suppliers"
+import { graphql, useStaticQuery } from "gatsby"
 
-export default function Home() {
+import Layout from "../components/layout"
+
+export default function NotFound() {
   const data = useStaticQuery(query)
 
-  const bannerContent = data.strapiServices.banner
-  const introContent = data.strapiServices.service_intro.intro_content
-  const servicePricelistContent = data.strapiServices.service_pricelist
-  const seo = data.strapiServices.seo
-  const { siteTitle, siteDescription } = seo
+  const bannerContent = data.strapiSuppliers.Banner
+  const introContent = data.strapiSuppliers.intro.intro_content
+  const pageSeo = data.strapiSuppliers.seo
+  const { pageTitle, pageDescription } = pageSeo
+  const suppliers = data.strapiSuppliers.suppliers
 
   const bannerText = bannerContent.bannerText
   const bannerButtonText = bannerContent.buttonText
@@ -23,21 +24,21 @@ export default function Home() {
 
   return (
     <Layout>
-      <SEO title={siteTitle} description={siteDescription} />
-
+      <SEO title={pageTitle} description={pageDescription} />
       <Banner
         bannerText={bannerText}
         buttonText={bannerButtonText}
         url={bannerButtonURL}
         image={image}
       />
+
       <IntroText
         introHeading={introContent.heading}
         introText={introContent.text}
         key={introContent.id}
       />
 
-      <ServicePricelist pricelistContent={servicePricelistContent} />
+      <Suppliers suppliers_content={suppliers} />
 
       <Cta />
     </Layout>
@@ -46,8 +47,8 @@ export default function Home() {
 
 const query = graphql`
   query {
-    strapiServices {
-      banner {
+    strapiSuppliers {
+      Banner {
         bannerText
         buttonText
         buttonURL
@@ -59,35 +60,30 @@ const query = graphql`
           }
         }
       }
-      service_intro {
+      intro {
         intro_content {
           heading
           text
           id
         }
       }
-      service_pricelist {
-        id
-        card_side
-        button_text
-        button_url
-        title
-        pricelist_background {
+      seo {
+        pageTitle: title
+        pageDescription: description
+      }
+      suppliers {
+        supplier_category
+        supplier_description
+        supplier_instagram
+        supplier_name
+        supplier_website
+        supplier_image {
           childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        service_pricing {
-          service_description
-          service_price
-          id
-        }
-      }
-      seo {
-        siteTitle: title
-        siteDescription: description
       }
     }
   }
