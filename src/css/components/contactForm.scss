@@ -11,5 +11,16 @@
 }
 
 .form-label {
-  @apply w-full flex flex-row justify-between my-6 uppercase font-light;;
+  @apply w-full flex flex-row justify-between my-6 uppercase font-light;
+}
+
+iframe {
+  width: 100% !important;
+  height: 750px;
+}
+
+@media only screen and (min-width: 852px) {
+  iframe {
+    height: 650px !important;
+  }
 }
